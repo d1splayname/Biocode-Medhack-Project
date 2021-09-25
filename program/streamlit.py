@@ -57,6 +57,7 @@ text = """
 """
 st.markdown(text)
 
+
 # Dropdown menu to select and view data for a certain city
 option = st.selectbox(
     "Select a city:",
@@ -75,7 +76,6 @@ map_data = pd.DataFrame({
 })
 
 st.map(map_data)
-
 
 
 # More Text
@@ -119,6 +119,14 @@ st.write("Concentration: " + str(conc_pm25))
 aqi = aqi_pm_calculator.calc_pm25(conc_pm25)
 st.write("AQI: " + str(aqi))
 st.write("Air Quality: " + str(qualify_data.qualify_aqi(aqi)))
+
+
+# Horizontal Rule
+text = """
+---
+"""
+st.markdown(text)
+
 
 # Data Table
 if st.checkbox('Show Correlation Between Pollutant and Disease'):
