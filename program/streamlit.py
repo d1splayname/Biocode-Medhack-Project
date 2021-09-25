@@ -100,7 +100,9 @@ st.markdown(conc_pm10, unsafe_allow_html=True)
 conc_pm10 = st.slider("PM10 Slider", min_value=0, max_value=500)
 
 st.write("Concentration: " + str(conc_pm10))
-st.write("AQI: " + str(aqi_pm_calculator.calc_pm10(conc_pm10)))
+aqi = aqi_pm_calculator.calc_pm10(conc_pm10)
+st.write("AQI: " + str(aqi))
+st.write("Air Quality: " + str(qualify_data.qualify_aqi(aqi)))
 
 
 conc_pm25 = '<p style="font-family: TimesNewRoman; color: LightGreen; font-size: 18px; text-align: center">' \
@@ -109,6 +111,11 @@ st.markdown(conc_pm25, unsafe_allow_html=True)
 conc_pm25 = st.slider('PM2.5 Slider', min_value=0, max_value=500)
 
 st.write("Concentration: " + str(conc_pm25))
+<<<<<<< HEAD
+aqi = aqi_pm_calculator.calc_pm25(conc_pm25)
+st.write("AQI: " + str(aqi))
+st.write("Air Quality: " + str(qualify_data.qualify_aqi(aqi)))
+=======
 st.write("AQI: " + str(aqi_pm_calculator.calc_pm25(conc_pm25)))
 
 
@@ -122,5 +129,6 @@ if st.checkbox('Show Pollution Data'):
     chart_data
 
 
+>>>>>>> 87b6ec386a1f6e8a6d52574a8c0138ae469f5a8d
 
 # st.text_input('Enter some text')
