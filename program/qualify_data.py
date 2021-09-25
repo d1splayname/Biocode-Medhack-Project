@@ -17,7 +17,7 @@ def qualify_aqi(aqi) -> str:
 # function that gives a cautionary statement based on the current AQI
 def cautionary_statement(aqi) -> str:
     if 0 <= aqi <= 50:
-        return "None"
+        return "Good AQI."
     elif 51 <= aqi <= 150:
         return "Active children and adults, and people with respiratory disease, such as asthma, should limit " \
                "prolonged outdoor exertion."
