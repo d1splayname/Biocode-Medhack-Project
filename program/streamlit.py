@@ -57,7 +57,8 @@ option = st.selectbox(
     "Select a city:",
     ("Shanghai", "Huntsville", "London", "New Delhi", "Moscow", "New York City", "Tokyo", "Beijing", "Bangkok", "Jakarta", "Ho Chi Minh City", "Mumbai", "Dubai", "Cairo", "Kinshasa", "Johannesburg", "Rio de Janeiro", "Buenos Aires", "Sao Paulo", "Mexico City", "Los Angeles", "Paris", "Istanbul", "Baghdad", "Khartoum", "Lima", "Rome", "Kolkota", "Seoul", "Lagos", "Sydney", "Melbourne"))
 
-st.write(f"The AQI in {option} is {readData.getCityData(option)}")
+st.write(f"The AQI in {option} is {readData.getCityData(option)}, this is {qualify_data.qualify_aqi(readData.getCityData(option))}.")
+st.write(f"{qualify_data.cautionary_statement(readData.getCityData(option))}")
 
 
 # Display coordinates of cities on a map
