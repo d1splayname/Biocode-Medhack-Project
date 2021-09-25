@@ -41,7 +41,12 @@ st.markdown(text)
 df = pd.DataFrame({
     'AQI Level': ["0-50", "51-100", "101-150", "151-200", "201-300", "301-500"],
     'Qualitative Descriptor': ["Good", "Moderate", "Unhealthy for Sensitive Groups", "Unhealthy", "Very Unhealthy",
-                             "Hazardous"]
+                             "Hazardous"],
+    'Cautionary Statement': [qualify_data.cautionary_statement("Good"), qualify_data.cautionary_statement("Moderate"),
+                             qualify_data.cautionary_statement("Unhealthy for Sensitive Groups"),
+                             qualify_data.cautionary_statement("Unhealthy"),
+                             qualify_data.cautionary_statement("Very Unhealthy"),
+                             qualify_data.cautionary_statement("Hazardous")]
 })
 st.write(df)
 
@@ -114,18 +119,16 @@ st.write("Concentration: " + str(conc_pm25))
 aqi = aqi_pm_calculator.calc_pm25(conc_pm25)
 st.write("AQI: " + str(aqi))
 st.write("Air Quality: " + str(qualify_data.qualify_aqi(aqi)))
-st.write("AQI: " + str(aqi_pm_calculator.calc_pm25(conc_pm25)))
-
 
 # Data Table
-if st.checkbox('Show Pollution Data'):
-    chart_data = pd.DataFrame(
-        # 'City' =
-        np.random.randn(20, 3),
-        columns=['City', 'b', 'c'])
+if st.checkbox('Show Correlation Between Pollutant and Disease'):
+    chart_data = pd.DataFrame({
+        'Pollutant': ["O3", "NO2", "SO2", "PM2.5", "PM10"],
+        'COVID': ["Positive", "Positive", "Negative", "Positive", "Positive"],
+        'Lung Cancer': ["No Correlation", "No Correlation", "Positive", "Positive", "Positive"],
+        'Cardiovascular Diseases': ["Positive", "Positive", "Positive", "Positive", "Positive"]
+    })
 
     chart_data
-
-
 
 # st.text_input('Enter some text')
