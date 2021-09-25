@@ -6,7 +6,7 @@ def main():
     pass
 
 def readDataFromFile():
-    airQualityFileName = "AirQualityDataPoints.txt"
+    airQualityFileName = "AirQualityDataPoints.csv"
 
     columnLables = []
     cityDictionary = {}
