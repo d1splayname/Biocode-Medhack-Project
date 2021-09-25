@@ -23,7 +23,6 @@ def readDataFromFile():
 
 def getCityData(city):
     _, cityDictionary = readDataFromFile()
-    # print(cityDictionary[city])
     return cityDictionary[city][0]
 
 def getLatLon():
