@@ -45,4 +45,12 @@ def getAQIs():
     co = [cityDict[i][6] for i in cityDict]
     return cities, aqi, pm10, pm25, o3, so2, no2, co
 
-getCityData("Moscow")
+
+def getCities():
+    l = []
+    _, cityDictionary = readDataFromFile()
+    for i in cityDictionary:
+        print(i)
+        l.append(i)
+    print(l)
+
