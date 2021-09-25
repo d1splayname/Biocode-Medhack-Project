@@ -5,6 +5,7 @@ import qualify_data
 import readData
 import aqi_pm_calculator
 
+
 # Heading
 title = '<div align="center">' \
         '<span style="font-family: sans-serif; color: LightBlue; font-size: 40px;">Aera</span>' \
@@ -21,10 +22,20 @@ st.write("\n")
 
 
 # Text/Description
-text1 = '<p style="color: #e23e56; font-size: 16px; text-align: center;">Everyone has heard about climate change and ' \
+text1 = '<p style="color: #cbc3e3; font-size: 16px; text-align: center;">Everyone has heard about climate change and ' \
         'the effects of greenhouse gases on the environment. But how do these environmental changes affect our ' \
         'health?</p>'
 st.markdown(text1, unsafe_allow_html=True)
+text2 = '<p style="color: #cbc3e3; font-size: 16px; text-align: center;">Your weather app may show you the air ' \
+        'quality in your area, and you may have heard about how polluted cities in China and India, but what does ' \
+        'this number mean?</p>'
+st.markdown(text2, unsafe_allow_html=True)
+
+# Horizontal Rule
+text = """
+---
+"""
+st.markdown(text)
 
 # Air Quality Index Qualifying Descriptors
 df = pd.DataFrame({
@@ -35,15 +46,11 @@ df = pd.DataFrame({
 st.write(df)
 
 
-
-
-if st.checkbox('Show Pollution Data'):
-    chart_data = pd.DataFrame(
-        # 'City' =
-        np.random.randn(20, 3),
-        columns=['City', 'b', 'c'])
-
-    chart_data
+# Horizontal Rule
+text = """
+---
+"""
+st.markdown(text)
 
 
 # Display coordinates of cities on a map
@@ -57,11 +64,31 @@ map_data = pd.DataFrame({
 st.map(map_data)
 
 
-chart_data = pd.DataFrame(
-    np.random.randn(20, 3),
-    columns=['a', 'b', 'c'])
+# Data Table
+if st.checkbox('Show Pollution Data'):
+    chart_data = pd.DataFrame(
+        # 'City' =
+        np.random.randn(20, 3),
+        columns=['City', 'b', 'c'])
 
-st.bar_chart(chart_data)
+    chart_data
+
+
+# More Text
+text3 = '<p style="color: #cbc3e3; font-size: 16px; text-align: center;">The World Health Organization (WHO) ' \
+        'reported that ambient air pollution was responsible for 3.7 million deaths in 2012, representing 6.7% of ' \
+        'total deaths worldwide, and was the cause of 16% of lung cancer deaths, 11% of chronic obstructive ' \
+        'pulmonary disease-related death, 29% of heart disease and stroke, and approximately 13% of deaths due ' \
+        'to respiratory infection. </p>'
+st.markdown(text3, unsafe_allow_html=True)
+
+
+# Horizontal Rule
+text = """
+---
+"""
+st.markdown(text)
+
 
 # SLIDERS
 slider_text = '<p style="font-family: TimesNewRoman; color: LightBlue; font-size: 22px; text-align: center">Adjust ' \
@@ -87,4 +114,4 @@ st.write("AQI: " + str(aqi_pm_calculator.calc_pm25(conc_pm25)))
 
 
 
-st.text_input('Enter some text')
+# st.text_input('Enter some text')
