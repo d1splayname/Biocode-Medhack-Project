@@ -61,7 +61,7 @@ st.markdown(text)
 # Dropdown menu to select and view data for a certain city
 option = st.selectbox(
     "Select a city:",
-    ("Shanghai", "Huntsville", "London", "New Delhi", "Moscow", "New York City", "Tokyo", "Beijing", "Bangkok", "Jakarta", "Ho Chi Minh City", "Mumbai", "Dubai", "Cairo", "Kinshasa", "Johannesburg", "Rio de Janeiro", "Buenos Aires", "Sao Paulo", "Mexico City", "Los Angeles", "Paris", "Istanbul", "Baghdad", "Khartoum", "Lima", "Rome", "Kolkota", "Seoul", "Lagos", "Sydney", "Melbourne"))
+    ('Shanghai; China', 'Huntsville; USA', 'London; UK', 'New Delhi; India', 'Moscow; Russia', 'New York City; USA', 'Tokyo; Japan', 'Beijing; China', 'Bangkok; Thailand', 'Jakarta; Indonesia', 'Ho Chi Minh City; Vietnam', 'Mumbai; India', 'Dubai; UAE', 'Cairo; Egypt', 'Kinshasa; Democratic Republic of Congo', 'Johannesburg; South Africa', 'Rio de Janeiro; Brazil', 'Buenos Aires; Argentina', 'Sao Paulo; Brazil', 'Mexico City; Mexico', 'Los Angeles; USA', 'Paris; France', 'Istanbul; Turkey', 'Baghdad; Iraq', 'Khartoum; Sudan', 'Lima; Peru', 'Rome; Italy', 'Kolkata; India', 'Seoul; South Korea', 'Lagos; Nigeria', 'Sydney; Australia', 'Melbourne; Australia'))
 
 citydata = readData.getCityData(option)
 AQI = citydata[0]
@@ -78,6 +78,13 @@ map_data = pd.DataFrame({
 })
 
 st.map(map_data)
+
+
+# Horizontal Rule
+text = """
+---
+"""
+st.markdown(text)
 
 
 # More Text
