@@ -8,11 +8,11 @@ def main():
 
     columnLabels, cityDictionary = readData.readDataFromFile()
 
-    """
+
     print(columnLabels)
     for city in cityDictionary:
         print(city + ": " + str(cityDictionary[city]) + " " + str(len(cityDictionary[city])))
-    """
+
     pass
 
 

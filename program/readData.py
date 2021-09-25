@@ -19,3 +19,11 @@ def readDataFromFile():
             cityDictionary[cityName] = dataPoint
 
     return columnLables, cityDictionary
+
+
+def getLatLon():
+    columns, cityDict = readDataFromFile()
+    cities = [i for i in cityDict]
+    lat = [cityDict[i][7] for i in cityDict]
+    lon = [cityDict[i][8] for i in cityDict]
+    return cities, lat, lon
