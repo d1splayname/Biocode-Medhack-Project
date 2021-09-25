@@ -15,19 +15,19 @@ def qualify_aqi(aqi) -> str:
 
 
 # function that gives a cautionary statement based on the current AQI
-def cautionary_statement(aqi) -> str:
-    if 0 <= aqi <= 50:
+def cautionary_statement(aqi_level) -> str:
+    if aqi_level == "Good":
         return "None"
-    elif 51 <= aqi <= 150:
+    elif aqi_level == "Moderate":
         return "Active children and adults, and people with respiratory disease, such as asthma, should limit " \
                "prolonged outdoor exertion."
-    elif 151 <= aqi <= 200:
+    elif aqi_level == "Unhealthy for Sensitive Groups":
         return "Active children and adults, and people with respiratory disease, such as asthma, should avoid " \
                "prolonged outdoor exertion; everyone else, especially children, should limit prolonged outdoor " \
                "exertion."
-    elif 201 <= aqi <= 300:
+    elif aqi_level == "Unhealthy" or aqi_level == "Very Unhealthy":
         return "Active children and adults, and people with respiratory disease, such as asthma, should avoid all " \
                "outdoor exertion; everyone else, especially children, should limit outdoor exertion."
-    elif 301 <= aqi <= 500:
+    elif aqi_level == "Hazardous":
         return "Everyone should avoid all outdoor exertion."
 

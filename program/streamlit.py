@@ -42,6 +42,9 @@ df = pd.DataFrame({
     'AQI Level': ["0-50", "51-100", "101-150", "151-200", "201-300", "301-500"],
     'Qualitative Descriptor': ["Good", "Moderate", "Unhealthy for Sensitive Groups", "Unhealthy", "Very Unhealthy",
                              "Hazardous"]
+    'Cautionary Statement': [qualify_data.cautionary_statement("Good"), qualify_data.cautionary_statement("Moderate"),
+                             qualify_data.cautionary_statement("Unhealthy for Sensitive Groups"), qualify_data.cautionary_statement("Unhealthy"),
+                             qualify_data.cautionary_statement("Very Unhealthy"), qualify_data.cautionary_statement("Hazardous")]
 })
 st.write(df)
 
@@ -101,7 +104,9 @@ st.markdown(conc_pm10, unsafe_allow_html=True)
 conc_pm10 = st.slider("PM10 Slider", min_value=0, max_value=500)
 
 st.write("Concentration: " + str(conc_pm10))
-st.write("AQI: " + str(aqi_pm_calculator.calc_pm10(conc_pm10)))
+aqi = aqi_pm_calculator.calc_pm10(conc_pm10)
+st.write("AQI: " + str(aqi))
+st.write("Air Quality: " + str(qualify_data.qualify_aqi(aqi)))
 
 
 conc_pm25 = '<p style="font-family: TimesNewRoman; color: LightGreen; font-size: 18px; text-align: center">' \
@@ -110,8 +115,8 @@ st.markdown(conc_pm25, unsafe_allow_html=True)
 conc_pm25 = st.slider('PM2.5 Slider', min_value=0, max_value=500)
 
 st.write("Concentration: " + str(conc_pm25))
-st.write("AQI: " + str(aqi_pm_calculator.calc_pm25(conc_pm25)))
-
-
+aqi = aqi_pm_calculator.calc_pm25(conc_pm25)
+st.write("AQI: " + str(aqi))
+st.write("Air Quality: " + str(qualify_data.qualify_aqi(aqi)))
 
 # st.text_input('Enter some text')

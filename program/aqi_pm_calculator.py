@@ -24,12 +24,12 @@ def calc_pm25(conc):         # micrograms/meter-cubed
     elif 12.1 <= conc <= 35.4:
         return calculate_AQI(51, 100, 12.1, 35.4, conc)
     elif 35.5 <= conc <= 55.4:
-        return calculate_AQI(101, 150, 155, 254, conc)
+        return calculate_AQI(101, 150, 35.5, 55.4, conc)
     elif 55.5 <= conc <= 150.4:
-        return calculate_AQI(151, 200, 255, 354, conc)
+        return calculate_AQI(151, 200, 55.5, 150.4, conc)
     elif 150.5 <= conc <= 250.4:
-        return calculate_AQI(201, 300, 355, 424, conc)
+        return calculate_AQI(201, 300, 150.5, 250.4, conc)
     elif 250.5 <= conc <= 500.5:
-        return calculate_AQI(301, 500, 425, 604, conc)
+        return calculate_AQI(301, 500, 250.5, 500.5, conc)
 
 
