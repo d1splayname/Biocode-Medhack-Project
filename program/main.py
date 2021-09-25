@@ -6,10 +6,10 @@ import readData
 def main():
     print("Team BioCode+")
 
-    columnLables, cityDictionary = readData.readDataFromFile()
+    columnLabels, cityDictionary = readData.readDataFromFile()
 
     """
-    print(columnLables)
+    print(columnLabels)
     for city in cityDictionary:
         print(city + ": " + str(cityDictionary[city]) + " " + str(len(cityDictionary[city])))
     """
