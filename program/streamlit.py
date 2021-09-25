@@ -58,7 +58,7 @@ option = st.selectbox(
     ("Shanghai", "Huntsville", "London", "New Delhi", "Moscow", "New York City", "Tokyo", "Beijing", "Bangkok", "Jakarta", "Ho Chi Minh City", "Mumbai", "Dubai", "Cairo", "Kinshasa", "Johannesburg", "Rio de Janeiro", "Buenos Aires", "Sao Paulo", "Mexico City", "Los Angeles", "Paris", "Istanbul", "Baghdad", "Khartoum", "Lima", "Rome", "Kolkota", "Seoul", "Lagos", "Sydney", "Melbourne"))
 
 st.write(f"The AQI in {option} is {readData.getCityData(option)}, this is {qualify_data.qualify_aqi(readData.getCityData(option))}.")
-st.write(f"{qualify_data.cautionary_statement(readData.getCityData(option))}")
+st.write(f"{qualify_data.cautionary_statement(qualify_data.qualify_aqi(readData.getCityData(option)))}")
 
 
 # Display coordinates of cities on a map
@@ -111,11 +111,9 @@ st.markdown(conc_pm25, unsafe_allow_html=True)
 conc_pm25 = st.slider('PM2.5 Slider', min_value=0, max_value=500)
 
 st.write("Concentration: " + str(conc_pm25))
-<<<<<<< HEAD
 aqi = aqi_pm_calculator.calc_pm25(conc_pm25)
 st.write("AQI: " + str(aqi))
 st.write("Air Quality: " + str(qualify_data.qualify_aqi(aqi)))
-=======
 st.write("AQI: " + str(aqi_pm_calculator.calc_pm25(conc_pm25)))
 
 
@@ -129,6 +127,5 @@ if st.checkbox('Show Pollution Data'):
     chart_data
 
 
->>>>>>> 87b6ec386a1f6e8a6d52574a8c0138ae469f5a8d
 
 # st.text_input('Enter some text')
