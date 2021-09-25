@@ -52,6 +52,13 @@ text = """
 """
 st.markdown(text)
 
+# Dropdown menu to select and view data for a certain city
+option = st.selectbox(
+    "Select a city:",
+    ("Shanghai", "Huntsville", "London", "New Delhi", "Moscow", "New York City", "Tokyo", "Beijing", "Bangkok", "Jakarta", "Ho Chi Minh City", "Mumbai", "Dubai", "Cairo", "Kinshasa", "Johannesburg", "Rio de Janeiro", "Buenos Aires", "Sao Paulo", "Mexico City", "Los Angeles", "Paris", "Istanbul", "Baghdad", "Khartoum", "Lima", "Rome", "Kolkota", "Seoul", "Lagos", "Sydney", "Melbourne"))
+
+st.write(f"The AQI in {option} is {readData.getCityData(option)}")
+
 
 # Display coordinates of cities on a map
 cities, lat, lon = readData.getLatLon()
@@ -63,15 +70,6 @@ map_data = pd.DataFrame({
 
 st.map(map_data)
 
-
-# Data Table
-if st.checkbox('Show Pollution Data'):
-    chart_data = pd.DataFrame(
-        # 'City' =
-        np.random.randn(20, 3),
-        columns=['City', 'b', 'c'])
-
-    chart_data
 
 
 # More Text
@@ -111,6 +109,16 @@ conc_pm25 = st.slider('PM2.5 Slider', min_value=0, max_value=500)
 
 st.write("Concentration: " + str(conc_pm25))
 st.write("AQI: " + str(aqi_pm_calculator.calc_pm25(conc_pm25)))
+
+
+# Data Table
+if st.checkbox('Show Pollution Data'):
+    chart_data = pd.DataFrame(
+        # 'City' =
+        np.random.randn(20, 3),
+        columns=['City', 'b', 'c'])
+
+    chart_data
 
 
 
