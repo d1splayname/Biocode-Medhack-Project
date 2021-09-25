@@ -14,7 +14,7 @@ def readDataFromFile():
             splitLine = line.split(",")
 
             cityName, dataPoint = splitLine[0], splitLine[1:]
-            dataPoint = list(map(int, dataPoint))
+            dataPoint = list(map(float, dataPoint))
 
             cityDictionary[cityName] = dataPoint
 
