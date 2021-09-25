@@ -24,3 +24,6 @@ def readDataFromFile():
             cityDictionary[cityName] = dataPoint
 
     return columnLables, cityDictionary
+
+if __name__ == "__main__":
+    main()
