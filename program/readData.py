@@ -22,7 +22,7 @@ def readDataFromFile():
 
 
 def getLatLon():
-    columns, cityDict = readDataFromFile()
+    _, cityDict = readDataFromFile()
     cities = [i for i in cityDict]
     lat = [cityDict[i][7] for i in cityDict]
     lon = [cityDict[i][8] for i in cityDict]
