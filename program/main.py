@@ -1,8 +1,9 @@
 def main():
-    # print("Team biocode")
+    print("Team biocode")
+
     columnLables, cityDictionary = readDataFromFile()
-    print(columnLables)
-    print(cityDictionary)
+    # print(columnLables)
+    # print(cityDictionary)
     pass
 
 def readDataFromFile():
@@ -13,17 +14,20 @@ def readDataFromFile():
 
     with open(airQualityFileName, "r") as file:
         # read column labels
-        columnLables = file.readline().split(",")
+        columnLables = file.readline().rstrip().split(",")
 
         # read and parse in data
-        dataLines = file.readlines().split("/n")
+        dataLines = file.readlines()
         for line in dataLines:
-            cityName, dataPoint = file.readline().split(",")
-            dataPoint = map(int, dataPoint)
+            splitLine = line.split(",")
+
+            cityName, dataPoint = splitLine[0], splitLine[1:]
+            dataPoint = list(map(int, dataPoint))
 
             cityDictionary[cityName] = dataPoint
 
     return columnLables, cityDictionary
+
 
 if __name__ == "__main__":
     main()
