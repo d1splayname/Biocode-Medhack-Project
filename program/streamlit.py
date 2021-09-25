@@ -78,6 +78,13 @@ map_data = pd.DataFrame({
 st.map(map_data)
 
 
+# Horizontal Rule
+text = """
+---
+"""
+st.markdown(text)
+
+
 # More Text
 text3 = '<p style="color: #cbc3e3; font-size: 16px; text-align: center;">The World Health Organization (WHO) ' \
         'reported that ambient air pollution was responsible for 3.7 million deaths in 2012, representing 6.7% of ' \
