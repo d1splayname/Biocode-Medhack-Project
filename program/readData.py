@@ -21,6 +21,11 @@ def readDataFromFile():
     return columnLabels, cityDictionary
 
 
+def getCityData(city):
+    _, cityDictionary = readDataFromFile()
+    # print(cityDictionary[city])
+    return cityDictionary[city][0]
+
 def getLatLon():
     _, cityDict = readDataFromFile()
     cities = [i for i in cityDict]
@@ -40,3 +45,5 @@ def getAQIs():
     no2 = [cityDict[i][5] for i in cityDict]
     co = [cityDict[i][6] for i in cityDict]
     return cities, aqi, pm10, pm25, o3, so2, no2, co
+
+getCityData("Moscow")

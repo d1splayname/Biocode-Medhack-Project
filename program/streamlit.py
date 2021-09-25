@@ -42,9 +42,6 @@ df = pd.DataFrame({
     'AQI Level': ["0-50", "51-100", "101-150", "151-200", "201-300", "301-500"],
     'Qualitative Descriptor': ["Good", "Moderate", "Unhealthy for Sensitive Groups", "Unhealthy", "Very Unhealthy",
                              "Hazardous"]
-    'Cautionary Statement': [qualify_data.cautionary_statement("Good"), qualify_data.cautionary_statement("Moderate"),
-                             qualify_data.cautionary_statement("Unhealthy for Sensitive Groups"), qualify_data.cautionary_statement("Unhealthy"),
-                             qualify_data.cautionary_statement("Very Unhealthy"), qualify_data.cautionary_statement("Hazardous")]
 })
 st.write(df)
 
@@ -54,6 +51,13 @@ text = """
 ---
 """
 st.markdown(text)
+
+# Dropdown menu to select and view data for a certain city
+option = st.selectbox(
+    "Select a city:",
+    ("Shanghai", "Huntsville", "London", "New Delhi", "Moscow", "New York City", "Tokyo", "Beijing", "Bangkok", "Jakarta", "Ho Chi Minh City", "Mumbai", "Dubai", "Cairo", "Kinshasa", "Johannesburg", "Rio de Janeiro", "Buenos Aires", "Sao Paulo", "Mexico City", "Los Angeles", "Paris", "Istanbul", "Baghdad", "Khartoum", "Lima", "Rome", "Kolkota", "Seoul", "Lagos", "Sydney", "Melbourne"))
+
+st.write(f"The AQI in {option} is {readData.getCityData(option)}")
 
 
 # Display coordinates of cities on a map
@@ -66,15 +70,6 @@ map_data = pd.DataFrame({
 
 st.map(map_data)
 
-
-# Data Table
-if st.checkbox('Show Pollution Data'):
-    chart_data = pd.DataFrame(
-        # 'City' =
-        np.random.randn(20, 3),
-        columns=['City', 'b', 'c'])
-
-    chart_data
 
 
 # More Text
@@ -115,8 +110,24 @@ st.markdown(conc_pm25, unsafe_allow_html=True)
 conc_pm25 = st.slider('PM2.5 Slider', min_value=0, max_value=500)
 
 st.write("Concentration: " + str(conc_pm25))
+<<<<<<< HEAD
 aqi = aqi_pm_calculator.calc_pm25(conc_pm25)
 st.write("AQI: " + str(aqi))
 st.write("Air Quality: " + str(qualify_data.qualify_aqi(aqi)))
+=======
+st.write("AQI: " + str(aqi_pm_calculator.calc_pm25(conc_pm25)))
+
+
+# Data Table
+if st.checkbox('Show Pollution Data'):
+    chart_data = pd.DataFrame(
+        # 'City' =
+        np.random.randn(20, 3),
+        columns=['City', 'b', 'c'])
+
+    chart_data
+
+
+>>>>>>> 87b6ec386a1f6e8a6d52574a8c0138ae469f5a8d
 
 # st.text_input('Enter some text')
