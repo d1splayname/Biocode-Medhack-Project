@@ -1,12 +1,12 @@
 def readDataFromFile():
     airQualityFileName = "AirQualityDataPoints.csv"
 
-    columnLables = []
+    columnLabels = []
     cityDictionary = {}
 
     with open(airQualityFileName, "r") as file:
         # read column labels
-        columnLables = file.readline().rstrip().split(",")
+        columnLabels = file.readline().rstrip().split(",")
 
         # read and parse in data
         dataLines = file.readlines()
@@ -18,7 +18,7 @@ def readDataFromFile():
 
             cityDictionary[cityName] = dataPoint
 
-    return columnLables, cityDictionary
+    return columnLabels, cityDictionary
 
 
 def getLatLon():
